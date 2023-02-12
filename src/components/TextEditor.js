@@ -13,10 +13,46 @@ function TextEditor(props) {
         let newText = text.toLowerCase();
         setText(newText)
     }
+    const handleToTitle = () => {
+        let newText = text.toLowerCase().split(' ');
+        for (var i = 0; i < newText.length; i++) {
+            newText[i] = newText[i].charAt(0).toUpperCase() + newText[i].slice(1);
+        }
+        setText(newText.join(' '))
+    }
+    const [theme, setTheme ] = useState({
+        color: 'black',
+        backgroundColor: 'white'
+    })
+    const handleTheme = (e) => {
+        console.log(e.value)
+        if (e.value === 'Dark'){
+            setTheme({
+                color: 'white',
+                backgroundColor: 'black'
+            })
+        }else if (e.value === 'Light'){
+            setTheme({
+                color: 'red',
+                backgroundColor: 'white'
+            })
+        }else if (e.target.value === 'Red'){
+            setTheme({
+                color: 'green',
+                backgroundColor: 'black'
+            })
+        }else if (e.target.value === 'Green'){
+            setTheme({
+                color: 'black',
+                backgroundColor: 'white'
+            })
+        }
+    }
+
     return (
-        <div className='container mt-5'>
-            <div className="d-flex align-items-start bg-white mb-3" style={{"height": "100px"}}>
-                <div className="col-8 p-2">
+        <div className='container mt-5' style={theme}>
+            <div className="d-flex align-items-start bg-white mb-3" style={{theme,"height": "100px"}}>
+                <div className="col-8 p-2" style={theme}>
                     <h3>{props.title}</h3>
                     <form className='mt-3'>
                         <div className="form-outline-dark mb-4">
@@ -25,9 +61,9 @@ function TextEditor(props) {
                         <button type="button" className="btn btn-dark">Save</button>
                     </form>  
                 </div>
-                <div className="col">
+                <div className="col" style={theme}>
                     <h3>Editor Settings</h3><hr/>
-                    <div className="row mt-2">
+                    <div className="row mt-2" style={theme}>
                         <div className="col-xl-4 col-lg-6 mb-4">
                             <div className="d-flex align-items-center">
                                 <button type="button" className="btn btn-dark" onClick={handleUpClick}>UpperCase</button>
@@ -38,15 +74,31 @@ function TextEditor(props) {
                                 <button type="button" className="btn btn-dark" onClick={handleLowClick}>LowerCase</button>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-6 mb-4">
-                            <div class="d-flex align-items-center">
-                                <button type="button" class="btn btn-dark">Colour</button>
+                        <div className="col-xl-4 col-lg-6 mb-4">
+                            <div className="d-flex align-items-center">
+                                <button type="button" className="btn btn-dark" onClick={handleToTitle}>Title Text</button>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-6 mb-4">
-                            <div class="d-flex align-items-center">
-                                <button type="button" class="btn btn-dark">Text Style</button>
+                        <div className="col-xl-4 col-lg-6 mb-4">
+                            <div className="d-flex align-items-center">
+                                <button type="button" className="btn btn-dark">Colour</button>
                             </div>
+                        </div>
+                        <div className="col-xl-4 col-lg-6 mb-4">
+                            <div className="d-flex align-items-center">
+                                <button type="button" className="btn btn-dark">Text Style</button>
+                            </div>
+                        </div>
+                        <div className="col-xl-4 col-lg-6 mb-4">
+                            <button type="button" className="btn btn-dark dropdown-toggle" data-mdb-toggle="dropdown" aria-expanded="false">
+                                Theme
+                            </button>
+                            <ul className="dropdown-menu">
+                                <li><button onClick={(e)=>handleTheme(e.value)} value="Dark" type="button" className="btn btn-dark mt-1">Dark</button></li>
+                                <li><button onClick={(e)=>handleTheme(e.value)} value="Light" type="button" className="btn btn-dark mt-1">Light</button></li>
+                                <li><button onClick={(e)=>handleTheme(e.value)} value="Red" type="button" className="btn btn-dark mt-1">Red</button></li>
+                                <li><button onClick={(e)=>handleTheme(e.value)} value="Green" type="button" className="btn btn-dark mt-1">Green</button></li>
+                            </ul>
                         </div>
                     </div>
                     <h2> Your Text Summary</h2>
