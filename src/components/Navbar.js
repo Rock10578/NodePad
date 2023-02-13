@@ -3,7 +3,7 @@ import React from 'react';
 function Navbar(props) {
   return (
     <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
             <button
                 className="navbar-toggler"
@@ -41,9 +41,14 @@ function Navbar(props) {
                         aria-describedby="search-addon"
                     />
                     <span className="input-group-text border-0" id="search-addon">
-                        <i className="fas fa-search"></i>
+                        {props.mode === 'dark'?<i className="fas fa-search text-white"></i>:<i className="fas fa-search"></i>}
                     </span>
                 </form>
+                {props.mode === 'dark'?<i class="fa-sharp fa-regular fa-sun text-light"></i>:<i className="fa-solid fa-sun"></i>}
+                <div className="form-check form-switch">
+                    <label className="form-check-label" htmlFor="flexSwitchCheckDefault"></label>
+                    <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="flexSwitchCheckDefault"/>
+                </div>
                 {/* bell */}
                 <div className="dropdown">
                     <a
@@ -54,7 +59,7 @@ function Navbar(props) {
                         data-mdb-toggle="dropdown"
                         aria-expanded="false"
                     >
-                        <i className="fas fa-bell"></i>
+                        {props.mode === 'dark'?<i className="fas fa-bell text-white"></i>:<i className="fas fa-bell"></i>}
                         <span className="badge rounded-pill badge-notification bg-danger">26</span>
                     </a>
                     <ul
