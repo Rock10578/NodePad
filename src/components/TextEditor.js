@@ -8,10 +8,12 @@ function TextEditor(props) {
     const handleUpClick = () => {
         let newText = text.toUpperCase();
         setText(newText)
+        props.showAlert("Converted to UpperCase","Success");
     }
     const handleLowClick = () => {
         let newText = text.toLowerCase();
         setText(newText)
+        props.showAlert("Converted to LowerCase","Success");
     }
     const handleToTitle = () => {
         let newText = text.toLowerCase().split(' ');
@@ -19,6 +21,7 @@ function TextEditor(props) {
             newText[i] = newText[i].charAt(0).toUpperCase() + newText[i].slice(1);
         }
         setText(newText.join(' '))
+        props.showAlert("Converted to CamelCase","Success");
     }
     // const [theme, setTheme ] = useState({
     //     color: 'black',
