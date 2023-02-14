@@ -39,7 +39,7 @@ function App() {
       <Alert alert={alert}/>
       <Routes>
         <Route path='/' element={<TextEditor title="Enter your text" mode={mode} showAlert={showAlert}/>}/>
-        <Route exact path='/about' element={<About/>}/>
+        <Route exact path='/about' element={<About  mode={mode}/>}/>
         {/* exact is used to find exact path since react uses partial matching gives error sometime */}
       </Routes>
     </Router>

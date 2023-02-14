@@ -53,11 +53,11 @@ function TextEditor(props) {
     // }
 
     return (
-        <div className='container mt-5' style={{backgroundColor: props.mode === 'dark'?'dark':'light'}}>
+        <div className={`container mt-5 bg-${props.mode === 'dark'?'#090f1f':'light'}`}>
             <div className="d-flex align-items-start bg-white mb-3" style={{"height": "100px"}}>
                 <div className={`col-8 p-2 bg-${props.mode === 'dark'?'black':'white'} text-${props.mode === 'light'?'dark':'light'}`}>
                     <h3>{props.title}</h3>
-                    <form className='mt-3'style={{backgroundColor: props.mode === 'dark'?'dark':'light'}}>
+                    <form className={`mt-3 bg-${props.mode === 'dark'?'#090f1f':'light'}`}>
                         <div className="form-outline-dark mb-4">
                             <textarea className="form-control"  value= {text} id="form4Example3" onChange={handleOnChange} rows="16" placeholder='Start Typing...'></textarea>
                         </div>
@@ -106,7 +106,7 @@ function TextEditor(props) {
                         </div>
                     </div>
                     <h2> Your Text Summary</h2>
-                    <p>{text.split(" ").length} words, {text.length} charactes</p>
+                    <p>{text.split(" ").filter((e)=>{return e.length!==0}).length} words, {text.length} charactes</p>
                     <p>{text.split(" ").length*0.005} Minutes to Read</p>
                 </div>
             </div>
