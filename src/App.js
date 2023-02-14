@@ -1,8 +1,14 @@
+import React, {useState} from 'react';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 import './App.css';
 import Navbar from './components/Navbar';
 import TextEditor from './components/TextEditor';
-import React, {useState} from 'react';
 import Alert from './components/Alert';
+import About from './components/About';
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -28,11 +34,15 @@ function App() {
     }
   }
   return (
-    <>
-      <Navbar title="Notepad" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <TextEditor title="Enter your text" mode={mode} showAlert={showAlert} />
-    </>
+    <Router>
+      <Navbar title="Notepad" mode={mode} toggleMode={toggleMode}/>
+      <Alert alert={alert}/>
+      <Routes>
+        <Route path='/' element={<TextEditor title="Enter your text" mode={mode} showAlert={showAlert}/>}/>
+        <Route exact path='/about' element={<About/>}/>
+        {/* exact is used to find exact path since react uses partial matching gives error sometime */}
+      </Routes>
+    </Router>
   );
 }
 

@@ -53,7 +53,7 @@ function TextEditor(props) {
     // }
 
     return (
-        <div className='container mt-5 ' style={{backgroundColor: props.mode === 'dark'?'dark':'light'}}>
+        <div className='container mt-5' style={{backgroundColor: props.mode === 'dark'?'dark':'light'}}>
             <div className="d-flex align-items-start bg-white mb-3" style={{"height": "100px"}}>
                 <div className={`col-8 p-2 bg-${props.mode === 'dark'?'black':'white'} text-${props.mode === 'light'?'dark':'light'}`}>
                     <h3>{props.title}</h3>
@@ -110,6 +110,7 @@ function TextEditor(props) {
                     <p>{text.split(" ").length*0.005} Minutes to Read</p>
                 </div>
             </div>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         </div>
     )
 }

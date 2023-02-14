@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Navbar(props) {
   return (
@@ -18,15 +19,18 @@ function Navbar(props) {
             </button>
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <a className="navbar-brand mt-2 mt-lg-0" href="/">
+                <Link className="navbar-brand mt-2 mt-lg-0" to="/">
                     {props.title}
-                </a>
+                </Link>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                    <a className="nav-link" href="/">Editor</a>
+                        <Link className="nav-link" to="/">Editor</Link>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link" href="/">NoteBooks</a>
+                        <a className="nav-link" href="/">NoteBooks</a>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to="/about">About</Link>
                     </li>
                 </ul>
             </div>
@@ -67,13 +71,13 @@ function Navbar(props) {
                     aria-labelledby="navbarDropdownMenuLink"
                     >
                         <li>
-                            <a className="dropdown-item" href="/">Remainder</a>
+                            <Link className="dropdown-item" to="/">Remainder</Link>
                         </li>
                         <li>
-                            <a className="dropdown-item" href="/">Important Dates</a>
+                            <Link className="dropdown-item" to="/">Important Dates</Link>
                         </li>
                         <li>
-                            <a className="dropdown-item" href="/">Collaboration invite From Rock10578</a>
+                            <Link className="dropdown-item" to="/">Collaboration invite From Rock10578</Link>
                         </li>
                     </ul>
                 </div>
@@ -100,13 +104,13 @@ function Navbar(props) {
                     aria-labelledby="navbarDropdownMenuAvatar"
                     >
                     <li>
-                        <a className="dropdown-item" href="/">My profile</a>
+                        <Link className="dropdown-item" to="/">My profile</Link>
                     </li>
                     <li>
-                        <a className="dropdown-item" href="/">Settings</a>
+                        <Link className="dropdown-item" to="/">Settings</Link>
                     </li>
                     <li>
-                        <a className="dropdown-item" href="/">Logout</a>
+                        <Link className="dropdown-item" to="/">Logout</Link>
                     </li>
                     </ul>
                 </div>
