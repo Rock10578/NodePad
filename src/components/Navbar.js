@@ -19,7 +19,7 @@ function Navbar(props) {
             </button>
 
             <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <Link className="navbar-brand mt-2 mt-lg-0" to="/">
+                <Link className="navbar-brand mt-lg-0" to="/">
                     {props.title}
                 </Link>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
@@ -27,7 +27,7 @@ function Navbar(props) {
                         <Link className="nav-link" to="/">Editor</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="/">NoteBooks</a>
+                        <Link className="nav-link" to="/">NoteBooks</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/about">About</Link>

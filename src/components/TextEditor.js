@@ -53,11 +53,11 @@ function TextEditor(props) {
     // }
 
     return (
-        <div className={`container mt-5 bg-${props.mode === 'dark'?'#090f1f':'light'}`}>
+        <div className={`container mt-5 bg-${props.mode === 'dark'?'#090f1f':'white'}`}>
             <div className="d-flex align-items-start bg-white mb-3" style={{"height": "100px"}}>
                 <div className={`col-8 p-2 bg-${props.mode === 'dark'?'black':'white'} text-${props.mode === 'light'?'dark':'light'}`}>
                     <h3>{props.title}</h3>
-                    <form className={`mt-3 bg-${props.mode === 'dark'?'#090f1f':'light'}`}>
+                    <form className={`mt-3 bg-${props.mode === 'dark'?'#090f1f':'white'}`}>
                         <div className="form-outline-dark mb-4">
                             <textarea className="form-control"  value= {text} id="form4Example3" onChange={handleOnChange} rows="16" placeholder='Start Typing...'></textarea>
                         </div>
@@ -69,27 +69,27 @@ function TextEditor(props) {
                     <div className="row mt-2" style={{backgroundColor: props.mode === 'dark'?'dark':'light'}}>
                         <div className="col-xl-4 col-lg-6 mb-4">
                             <div className="d-flex align-items-center">
-                                <button type="button" className="btn btn-dark" onClick={handleUpClick}>UpperCase</button>
+                                <button type="button" disabled={text.length===0} className="btn btn-dark" onClick={handleUpClick}>UpperCase</button>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6 mb-4">
                             <div className="d-flex align-items-center">
-                                <button type="button" className="btn btn-dark" onClick={handleLowClick}>LowerCase</button>
+                                <button type="button" disabled={text.length===0} className="btn btn-dark" onClick={handleLowClick}>LowerCase</button>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6 mb-4">
                             <div className="d-flex align-items-center">
-                                <button type="button" className="btn btn-dark" onClick={handleToTitle}>Title Text</button>
+                                <button type="button" disabled={text.length===0} className="btn btn-dark" onClick={handleToTitle}>Title Text</button>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6 mb-4">
                             <div className="d-flex align-items-center">
-                                <button type="button" className="btn btn-dark">Colour</button>
+                                <button type="button" disabled={text.length===0} className="btn btn-dark">Colour</button>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6 mb-4">
                             <div className="d-flex align-items-center">
-                                <button type="button" className="btn btn-dark">Text Style</button>
+                                <button type="button" disabled={text.length===0} className="btn btn-dark">Text Style</button>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-6 mb-4">
@@ -106,8 +106,9 @@ function TextEditor(props) {
                         </div>
                     </div>
                     <h2> Your Text Summary</h2>
-                    <p>{text.split(" ").filter((e)=>{return e.length!==0}).length} words, {text.length} charactes</p>
-                    <p>{text.split(" ").length*0.005} Minutes to Read</p>
+                    {/* /s used to count for s + used for more than 1 */}
+                    <p>{text.split(/\s+/).filter((e)=>{return e.length!==0}).length} words, {text.length} charactes</p>
+                    <p>{text.split(" ").filter((e)=>{return e.length!==0}).length*0.005} Minutes to Read</p>
                 </div>
             </div>
             <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>

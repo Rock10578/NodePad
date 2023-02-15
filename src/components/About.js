@@ -4,7 +4,7 @@ import '../App.css';
 function About(props) {
   return (
     <div className={`bg-${props.mode === 'dark'?'#090f1f':'light'} text-${props.mode === 'dark'?'light':'black'}`}>
-      <div id="carouselMaterialStyle" className="carousel slide carousel-fade m-2" data-mdb-ride="carousel">
+      <div id="carouselMaterialStyle" className="carousel slide carousel-fade m-2 mb-5" data-mdb-ride="carousel">
         <div className="carousel-indicators">
           <button type="button" data-mdb-target="#carouselMaterialStyle" data-mdb-slide-to="0" className="active" aria-current="true"
             aria-label="Slide 1"></button>
@@ -17,8 +17,9 @@ function About(props) {
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp" className="d-block w-100"
               alt="Sunset Over the City" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>First slide label</h5>
-              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+              <h5>Write As You Thought</h5>
+              <p>Don't need to Keep a notebook with you, for jotting down article ideas, facts to investigate, or colorful phrases to use in your own fiction writing.</p>
+              <p>Use NotePad anytime anwhere</p>
             </div>
           </div>
 
@@ -26,8 +27,8 @@ function About(props) {
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp" className="d-block w-100"
               alt="Canyon at Nigh" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Second slide label</h5>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <h5>Beauty is the state or quality of being beautiful</h5>
+              <p>Write down your thoughts about beauty and nature while travelling and enjoying scenios</p>
             </div>
           </div>
 
@@ -35,8 +36,9 @@ function About(props) {
             <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp" className="d-block w-100"
               alt="Cliff Above a Stormy Sea" />
             <div className="carousel-caption d-none d-md-block">
-              <h5>Third slide label</h5>
-              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+              <h5>Wild and free, just like the sea</h5>
+              <p>Love sea write down few words for sea. <strong>Life is simple: just add water.</strong></p>
+              <p>Add your thought about Sea.</p>
             </div>
           </div>
         </div>
