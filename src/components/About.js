@@ -122,7 +122,6 @@ function About(props) {
                     type="checkbox"
                     value=""
                     id="form2Example3"
-                    checked
                   />
                   <label className="form-check-label" for="form2Example3">
                     Subscribe to our newsletter
